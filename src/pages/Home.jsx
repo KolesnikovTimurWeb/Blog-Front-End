@@ -9,7 +9,7 @@ import { CommentsBlock } from '../components/CommentsBlock';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from '../axios'
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
-
+import './home.css'
 export const Home = () => {
   const dispatch = useDispatch();
   const { posts, tags } = useSelector(state => state.posts);
@@ -29,7 +29,7 @@ export const Home = () => {
         <Tab label="Новые" />
         <Tab label="Популярные" />
       </Tabs>
-      <Grid container spacing={4}>
+      <Grid className='container' container spacing={4}>
         <Grid xs={8} item>
           {(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) => isPostsLoading ? (
             <Post key={index} isLoading={true} />
